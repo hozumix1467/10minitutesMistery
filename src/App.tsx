@@ -422,7 +422,7 @@ function App() {
         />
       )}
 
-      <Footer onViewChange={handleViewChange} darkMode={darkMode} />
+      <Footer onViewChange={handleViewChange} />
     </div>
   );
 }

@@ -1,12 +1,11 @@
 import React from 'react';
-import { Github, Twitter, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 interface FooterProps {
   onViewChange?: (view: 'home' | 'list' | 'create' | 'myPage' | 'login' | 'privacy' | 'terms' | 'guidelines') => void;
-  darkMode: boolean;
 }
 
-const Footer: React.FC<FooterProps> = ({ onViewChange, darkMode }) => {
+const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -16,13 +15,7 @@ const Footer: React.FC<FooterProps> = ({ onViewChange, darkMode }) => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* サイト情報 */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <img 
-                src={darkMode ? '/images/icons/icon_dark.png' : '/images/icons/icon_light.png'} 
-                alt="10分事件簿" 
-                className="w-24 h-10 md:w-40 md:h-16"
-              />
-            </div>
+            <h3 className="text-xl font-bold text-slate-100 mb-4">10分事件簿</h3>
             <p className="text-slate-300 leading-relaxed">
               10分で読める魅力的なミステリー小説を、
               読む・書く・共有するためのプラットフォームです。
@@ -73,7 +66,7 @@ const Footer: React.FC<FooterProps> = ({ onViewChange, darkMode }) => {
             </ul>
           </div>
 
-          {/* お問い合わせ・ソーシャル */}
+          {/* お問い合わせ */}
           <div>
             <h4 className="text-lg font-semibold text-slate-100 mb-4">お問い合わせ</h4>
             <ul className="space-y-2">
@@ -89,26 +82,6 @@ const Footer: React.FC<FooterProps> = ({ onViewChange, darkMode }) => {
                 </a>
               </li>
             </ul>
-            
-            <h4 className="text-lg font-semibold text-slate-100 mb-4 mt-6">ソーシャル</h4>
-            <div className="flex space-x-3">
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-400 hover:text-white transition-colors duration-200 border border-slate-700"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a 
-                href="https://twitter.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-400 hover:text-blue-400 transition-colors duration-200 border border-slate-700"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-            </div>
           </div>
         </div>
 
@@ -145,17 +118,6 @@ const Footer: React.FC<FooterProps> = ({ onViewChange, darkMode }) => {
           </div>
         </div>
 
-        {/* 技術情報 */}
-        <div className="mt-8 pt-6 border-t border-slate-700">
-          <div className="text-center">
-            <p className="text-slate-500 text-xs">
-              Built with React, TypeScript, Tailwind CSS, and Firebase
-            </p>
-            <p className="text-slate-500 text-xs mt-1">
-              Hosted on Vercel | Database powered by Firestore
-            </p>
-          </div>
-        </div>
       </div>
     </footer>
   );
